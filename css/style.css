@@ -30,3 +30,43 @@ nav ul a {
 #stay {
     border-bottom: 1px solid yellowgreen;
 }
+/* add by Meng : Button*/
+.btnAdd{
+    margin-left: 1000px;
+    margin-top: 50px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 5px;
+    border-style: none;
+    color: white;
+    background-color: #0085FF;
+}
+/* add by Meng : quiz title */
+.quizTitle{
+    color: white;
+    background-color: #0085FF;
+    padding: 15px;
+    margin-top: 25px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+/* add by Meng : Input Question */
+.inputQuestion{
+    padding-left: 449px;
+    padding-right: 449px;
+    margin-top: 10px;
+}
+/* add by Meng : show Position of questions */
+.positionOfQ{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+/* add by Meng : possible answer */
+.possibleAnswer{
+    border-style: double;
+    padding: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 10px;
+}
