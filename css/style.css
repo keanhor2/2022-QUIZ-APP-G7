@@ -16,16 +16,16 @@
         align-content: space-between;
     }
     
-    nav ul li {
+    nav ul a li {
         list-style: none;
-        margin: 2%;
-        padding: 2%;
-        background: rgb(39, 0, 180);
     }
     
-    nav ul li a {
+    nav ul a {
+        margin: 2%;
+        padding: 2%;
         color: white;
         text-decoration: none;
+        background: rgb(39, 0, 180);
     }
     
     #stay {
