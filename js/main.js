@@ -1,37 +1,76 @@
-let containerHome = document.querySelector('.container-home');
-// To make fake list of questions
-let listOfQuestions = document.createElement('div');
-listOfQuestions.className = "edit-quiz";
-containerHome.appendChild(listOfQuestions);
-// To create button add
-let btnAdd = document.createElement('button');
-btnAdd.className = "btnAdd";
-btnAdd.textContent = "+Add";
-listOfQuestions.appendChild(btnAdd);
-// To show quiz title
-let quizTitle = document.createElement('div');
-quizTitle.className = "quizTitle";
-quizTitle.textContent = "Edit your quiz";
-listOfQuestions.appendChild(quizTitle);
-// To show position of question
-let positionOfQuestion = document.createElement('div');
-positionOfQuestion.className = "positionOfQ";
-        //    to create input
-let inputQuestion = document.createElement('input');
-inputQuestion.type = "text";
-inputQuestion.className ="inputQuestion";
-// --------------
-// positionOfQuestion = inputQuestion;
-positionOfQuestion.appendChild(inputQuestion);
-listOfQuestions.appendChild(positionOfQuestion);
-// To show possible answers 
-let possibleAnswer = document.createElement('div');
-possibleAnswer.className = "possibleAnswer";
-listOfQuestions.appendChild(possibleAnswer);
-// To show checkbox input
-for (let i=0;i<4;i++){
-    let checkBox = document.createElement('input');
-    checkBox.type = "checkbox";
-    possibleAnswer.appendChild(checkBox );
-    
-}
+ // =============================== Create add btn =====================================
+ let containerHome = document.querySelector('.container-home');
+ let btnAdd = document.createElement('button');
+ btnAdd.className = "btnAdd";
+ btnAdd.textContent = "Create";
+ containerHome.appendChild(btnAdd);
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Create answer function>>>>>>>>>>>>>>>>>>>>>>>>>>
+ function createQuiz(e) {
+
+     // ============================== Hold quiz container ============================
+     let mainCon = document.createElement('div');
+     mainCon.className = "mainCon";
+     // ============================== Quiz tilt ======================================
+     let quizTitle = document.createElement('div');
+     quizTitle.className = "quizTitle";
+     quizTitle.textContent = "Edit your quiz";
+     // ============================== Question container ==============================
+     let questionContainer = document.createElement('div');
+     questionContainer.className = "questionContainer";
+     // ----------------------------- create question input- ---------------------------
+     let addQuestion = document.createElement('input');
+     addQuestion.type = "text";
+     addQuestion.placeholder = "Add your question here";
+     addQuestion.className = "addQuestion";
+       //  -----------------------------add pencil Btn-----------------------------
+       let pencilBtn=document.createElement('button');
+       pencilBtn.className='pencilBtn'
+      //  -----------------------------add pencil images------------------------------
+      let pencilImg = document.createElement('IMG');
+      pencilImg.src = '../image/pencil.png';
+      pencilImg.className = 'pencil';
+       //  -----------------------------add trush Btn-----------------------------
+       let trushBtn=document.createElement('button');
+       trushBtn.className='trushBtn'
+          //  -----------------------------add trush images---------------------------
+      let trushImg = document.createElement('IMG');
+      trushImg.src = '../image/trush.png';
+      trushImg.className = 'trush';
+
+     // ============================== Append place;=====================================
+     questionContainer.appendChild(quizTitle);
+     containerHome.appendChild(questionContainer);
+     questionContainer.appendChild(addQuestion);
+     trushBtn.appendChild(trushImg)
+     pencilBtn.appendChild(pencilImg)
+     questionContainer.appendChild(trushBtn);
+     questionContainer.appendChild(pencilBtn);
+        //  ================================= Add event to create new answer blank===========
+        createAnswer()
+        let addAnswerBlank=document.querySelector('.pencilBtn');
+        addAnswerBlank.addEventListener('click',createAnswer)
+  
+    }
+    createQuiz()
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Create answer function>>>>>>>>>>>>>>>>>>>>>>>>>
+ function createAnswer(){
+      // ============================== Answer container ==============================
+      let answerContainer = document.createElement('div');
+      answerContainer.className = "answerContainer";
+      //  -----------------------------create answer input----------------------------
+      let addRadio = document.createElement('input');
+      addRadio.type='radio'
+      addRadio.className='radioBox'
+      let addAnswer = document.createElement('input');
+      addAnswer.type = "text";
+      addAnswer.placeholder = "Add your answer here";
+      addAnswer.className = "addAnswer";
+      // ============================== Append place;=================================
+      answerContainer.appendChild(addRadio)
+      answerContainer.appendChild(addAnswer);
+      containerHome.appendChild(answerContainer);
+ }
+//  ================================== Add event to create btn========================
+ let addQ = document.querySelector(".btnAdd");
+ addQ.addEventListener('click', createQuiz);

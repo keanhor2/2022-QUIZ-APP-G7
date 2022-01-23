@@ -1,8 +1,9 @@
 body {
+    display: flex;
+    justify-content: center;
     text-align: center;
     font-family: sans-serif;
 }
-
 .container-1 {
     width: 100%;
     height: 90vh;
@@ -32,41 +33,62 @@ nav ul a {
 }
 /* add by Meng : Button*/
 .btnAdd{
-    margin-left: 1000px;
-    margin-top: 50px;
-    padding: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
+    float: right;
+    width: 10%;
+    margin: 5%;
+    padding: 1%;
+    margin-right: 8.5%;
     border-radius: 5px;
     border-style: none;
     color: white;
     background-color: #0085FF;
 }
 /* add by Meng : quiz title */
-.quizTitle{
+.quizTitle {
+    margin-top: 15%;
     color: white;
     background-color: #0085FF;
-    padding: 15px;
-    margin-top: 25px;
-    margin-left: 100px;
-    margin-right: 100px;
 }
 /* add by Meng : Input Question */
-.inputQuestion{
-    padding-left: 449px;
-    padding-right: 449px;
-    margin-top: 10px;
+.quizTitle,
+.addQuestion,
+.addAnswer{
+    width: 95.5%;
+    padding: 2%;
+    margin-bottom: 3%;
 }
+
 /* add by Meng : show Position of questions */
-.positionOfQ{
-    margin-left: 100px;
-    margin-right: 100px;
+.container-home {
+    background: rgb(252, 240, 242);
+    width: 70%;
+}
+
+.questionContainer,
+.answerContainer {
+    margin: 8%;
+}
+
+.answerContainer {
+    display: flex;
 }
 /* add by Meng : possible answer */
-.possibleAnswer{
-    border-style: double;
-    padding: 10px;
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-top: 10px;
+
+.questionContainer {
+    border-bottom: 1px solid gray;
+}
+/* --------------------------------------------- */
+.trushBtn,
+.pencilBtn {
+        float: right;
+        border: none;
+        background:none;
+}
+/* ---------------------------------------------- */
+.radioBox{
+    float: left;
+    width: 20px;
+    height:20px;
+    margin: 2%;
+    margin-left: 0;
 }
