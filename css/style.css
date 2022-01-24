@@ -93,3 +93,68 @@ nav ul a {
     margin: 2%;
     /* margin-left: 0; */
 }
+
+/* ==================================================================== */
+/* // to display list questions */
+.main-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border: 2px solid #eee;
+}
+.displayForm{
+    width: 85%;
+    padding: 5px;
+}
+
+.nameTitle{
+    background:rgb(67, 149, 243);
+    color: white;
+    
+   
+}
+.nameTitle h2{
+    padding: 15px;
+}
+.quizScore{
+    background: rgb(67, 149, 243);
+    color: #fff;
+}
+.quizScore h3{
+    padding: 10px;
+}
+.quizScore,.nameTitle{
+    text-align: center;
+}
+ol li {
+    background: #eeee;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    
+}
+.btnNext{
+   text-align: center;
+   margin-top: 40px;
+}
+.btnNext button{
+    background:#eeee;
+    color: #000;
+    padding: 8px 40px;
+    border-radius: 10px;
+    border: none;
+}
+
+.btnSubmit{
+    text-align: center;
+    margin-top: 40px;
+ }
+ .btnSubmit button{
+     background: blue;
+     color: #fff;
+     padding: 8px 40px;
+     border-radius: 10px;
+     border: none;
+ }
+ 
+
