@@ -62,6 +62,7 @@ nav ul a {
 .container-home {
     background: rgb(252, 240, 242);
     width: 70%;
+    margin: auto;
 }
 
 .questionContainer,
@@ -86,9 +87,9 @@ nav ul a {
 }
 /* ---------------------------------------------- */
 .radioBox{
-    float: left;
+    /* float: left; */
     width: 20px;
     height:20px;
     margin: 2%;
-    margin-left: 0;
+    /* margin-left: 0; */
 }
