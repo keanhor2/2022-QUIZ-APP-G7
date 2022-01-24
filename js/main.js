@@ -4,10 +4,8 @@
  btnAdd.className = "btnAdd";
  btnAdd.textContent = "Create";
  containerHome.appendChild(btnAdd);
-
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Create answer function>>>>>>>>>>>>>>>>>>>>>>>>>>
- function createQuiz(e) {
-
+ function createQuiz() {
      // ============================== Hold quiz container ============================
      let mainCon = document.createElement('div');
      mainCon.className = "mainCon";
@@ -74,3 +72,114 @@
 //  ================================== Add event to create btn========================
  let addQ = document.querySelector(".btnAdd");
  addQ.addEventListener('click', createQuiz);
+
+
+
+
+
+
+
+//  =============================kea=================================================
+// display list of question 
+
+// select function 
+let displayForm= document.querySelector(".displayForm");
+// change color button ===================================
+function changeColorBtn(event) {
+    let next = document.querySelector(".next");
+    if(event.target.className==="radio"){
+        next.style.background="blue";
+        next.style.color="#fff"
+    }
+    
+}
+
+
+// date of object===========================
+let data_Objects =[
+    {question: "2.What is the most famous temple in thailand?",
+    value1:"kea",
+    value2: "cham",
+    value3:"kea",
+    value4: "cham",
+    checked: "kea"
+    },
+    {question: "3.what your name?",
+    value1:"kea1",
+    value2: "cham1",
+    value3:"kea1",
+    value4: "cham1",
+    checked: "kea1"
+    },
+    {question: "4.what your name?",
+    value1:"kea2",
+    value2: "cham2",
+    value3:"kea2",
+    value4: "cham2",
+    checked: "kea2"
+
+    },
+    {question: "5.what your name?",
+    value1:"kea3",
+    value2: "cham",
+    value3:"kea",
+    value4: "cham",
+        checked: "kea3"
+    },
+    {question: "6.what your name?",
+    value1:"ke4",
+    value2: "cham",
+    value3:"kea",
+    value4: "cham",
+    checked: "kea4"
+    },
+    {question: "7.what your name?",
+    value1:"ke4",
+    value2: "cham",
+    value3:"kea",
+    value4: "cham",
+    checked: "kea4"
+    },
+    {question: "8.what your name?",
+    value1:"ke4",
+    value2: "cham",
+    value3:"kea",
+    value4: "cham",
+    checked: "kea4"
+    },
+    {question: "9.what your name?",
+    value1:"ke4",
+    value2: "cham",
+    value3:"kea",
+    value4: "cham",
+    checked: "kea4"
+    },
+    {question: "10.what your name?",
+    value1:"ke4",
+    value2: "cham",
+    value3:"kea",
+    value4: "cham",
+    checked: "kea4"
+    }
+]
+
+let index = 0;
+function changeValue(){
+    let data = data_Objects[index];
+    let questions = document.getElementById("question");
+    let value1 = document.getElementById("first")
+    let value2 = document.getElementById("second")
+    let value3 = document.getElementById("third")
+    let value4 = document.getElementById("fourth")
+    questions.textContent = theavy.question;
+    value1.textContent = data.value1;
+    value2.textContent = data.value2;
+    value3.textContent = data.value3;
+    value4.textContent = data.value4;
+    index++;
+}
+
+let btn = document.querySelector(".next");
+btn.addEventListener("click",changeValue)
+
+document.addEventListener("click",changeColorBtn);
