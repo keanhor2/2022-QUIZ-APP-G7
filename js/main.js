@@ -4,15 +4,9 @@
  btnAdd.className = "btnAdd";
  btnAdd.textContent = "Create";
  containerHome.appendChild(btnAdd);
- let questionContainer = document.createElement('div');
-
-
+ 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Create answer function>>>>>>>>>>>>>>>>>>>>>>>>>>
 function createQuiz(e) {
-
-     // ============================== Hold quiz container ============================
-    //  let mainCon = document.createElement('div');
-    //  mainCon.className = "mainCon";
      // ============================== Quiz tilt ======================================
      let quizTitle = document.createElement('div');
      quizTitle.className = "quizTitle";
@@ -48,13 +42,11 @@ function createQuiz(e) {
      pencilBtn.appendChild(pencilImg)
      questionContainer.appendChild(trushBtn);
      questionContainer.appendChild(pencilBtn);
-     
         //  ================================= Add event to create new answer blank===========
-    
+      
 }
 createQuiz()
- // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Create answer function>>>>>>>>>>>>>>>>>>>>>>>>>
- function createAnswer(){
+function createAnswer(){
     // ============================== Answer container ==============================
     let answerContainer = document.createElement('div');
     answerContainer.className = "answerContainer";
@@ -69,11 +61,14 @@ createQuiz()
     // ============================== Append place;=================================
     answerContainer.appendChild(addRadio)
     answerContainer.appendChild(addAnswer);
-    containerHome.appendChild(answerContainer);
+    // containerHome.appendChild(answerContainer);
+    questionContainer.appendChild(answerContainer);
 }
+
 createAnswer()
-let addAnswerBlank=document.querySelector('.pencilBtn');
-addAnswerBlank.addEventListener('click',createAnswer);
+ // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Create answer function>>>>>>>>>>>>>>>>>>>>>>>>>
+    let addAnswerBlank=document.querySelector('.pencilBtn');
+    addAnswerBlank.addEventListener('click',createAnswer);
 //  ================================== Add event to create btn========================
  let addQ = document.querySelector(".btnAdd");
  addQ.addEventListener('click', createQuiz);
