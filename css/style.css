@@ -1,0 +1,15 @@
+.edit-con .question1{
+    background-color: rgb(31, 199, 255);
+    margin: auto;
+    width: 80%;
+    text-align: center;
+    margin-bottom: 2%;
+
+}
+.edit-con h2{
+    padding-top: 1%;
+}
+.edit-con p{
+    font-family: sans-serif;
+    padding-top: -5%;
+}
