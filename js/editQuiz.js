@@ -3,16 +3,16 @@ let data = [
         question: "How many provinces in Cambodia?Capital city?",
         answer: [
             {
-                a: "24 Phnom Penh", isCorrect: true,
+                a: "24 Phnom Penh", isCorrect: true
             },
             {
-                b: "25 Kampong Thum", isCorrect: false,
+                b: "25 Kampong Thum", isCorrect: false
             },
             {
-                c: "24 Kandal", isCorrect: false,
+                c: "24 Kandal", isCorrect: false
             },
             {
-                d: "25 Siem Reap", isCorrect: false,
+                d: "25 Siem Reap", isCorrect: false
             }
         ]
     },
@@ -165,7 +165,7 @@ let data = [
                 c: "7000", isCorrect: true,
             },
             {
-                d: "6800", isCorrect: false,
+                d: "6800", isCorrect: false,zzzzzzzzzzz
             }
         ]
     }
