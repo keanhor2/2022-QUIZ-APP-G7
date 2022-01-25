@@ -165,7 +165,7 @@ let data = [
                 c: "7000", isCorrect: true,
             },
             {
-                d: "6800", isCorrect: false,zzzzzzzzzzz
+                d: "6800", isCorrect: false,
             }
         ]
     }

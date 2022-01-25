@@ -1,23 +1,21 @@
 
-
-let newData = JSON.parse(localStorage.getItem('quiz'));
-
-console.log(newData);
-
-for (let jj of newData) {
-    console.log(jj);
-   for (let ob of jj.answer){
-       console.log(ob);
-       console.log(jj.answer.ob);
-       for(let g of jj.answer){
-           console.log(g);
-       }
-    }
-   
-        
-    
+// seclect || call element in HTML
+let newDatas = JSON.parse(localStorage.getItem('quiz'));
+let questions = document.getElementById("question");
+let answer1=document.getElementById("AS1");
+let answer2=document.getElementById("AS2");
+let answer3=document.getElementById("AS3");
+let answer4=document.getElementById("AS4");
+let index = 0
+function getQuestionAndAnswer(event) {
+    event.preventDefault();
+    questions.textContent = (newDatas[index].question);
+    index += 1;
+}
+for (let newData of newDatas){
 
 }
 
-// let btnNext= document.querySelector("#btnNext")
-// btnNext.addEventListener("click",changeQuestion);
+
+let btnNext = document.querySelector("#btnNext")
+btnNext.addEventListener("click", getQuestionAndAnswer);
