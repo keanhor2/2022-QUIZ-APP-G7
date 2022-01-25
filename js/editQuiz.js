@@ -119,7 +119,7 @@ let listOfQuestions = [{
     ]
 },
 {
-    question: "Q-7: What country did Malaysia aet independence from?",
+    question: "Q-7: What country did Malaysia get independence from?",
     listOfAnswers: [{
         answer: " A: France",
             isCorrect: false,
@@ -139,7 +139,7 @@ let listOfQuestions = [{
     ]
 },
 {
-    question: "Q-8: what is the laraest and capital city of Indonesia?",
+    question: "Q-8: what is the largest and capital city of Indonesia?",
     listOfAnswers: [{
         answer: " A: Jakata",
             isCorrect: true,
@@ -159,7 +159,7 @@ let listOfQuestions = [{
     ]
 },
 {
-    question: "Q-9: What is the reliaion of Brunei?",
+    question: "Q-9: What is the religion of Brunei?",
     listOfAnswers: [{
         answer: " A: Buddhist",
             isCorrect: false,
@@ -179,7 +179,7 @@ let listOfQuestions = [{
     ]
 },
 {
-    question: "Q-10: How many island in Philippines?",
+    question: "Q-10: How many islands in Philippines?",
     listOfAnswers: [{
         answer: " A: 7100",
             isCorrect: false,
@@ -215,12 +215,28 @@ const form = document.createElement('form');
 form.className = "form";
 editCon.appendChild(form);
 
+
 // ============================ loop to create list to store data o DOM =======================
 for (let questions of listOfQuestions) {
     let question = document.createElement('h3');
     question.className = "question";
     question.textContent = questions['question'];
     form.appendChild(question);
+
+
+    let footerQuiz = document.createElement('div');
+    footerQuiz.className = "footerQuiz";
+    let editBtn = document.createElement('img');
+    editBtn.src = "/image/pencil.png";
+    editBtn.className = "editBtn";
+    footerQuiz.appendChild(editBtn);
+    let removeBtn = document.createElement('img');
+    removeBtn.src = "/image/trush.png";
+    removeBtn.className = "removeBtn";
+    footerQuiz.appendChild(removeBtn);
+    form.appendChild(footerQuiz);
+    
+    
     for (let values of questions['listOfAnswers']) {
         let ol = document.createElement('ol');
         ol.className = 'ol-edit';
@@ -234,6 +250,7 @@ for (let questions of listOfQuestions) {
         ol.appendChild(radio);
         ol.appendChild(li);
         form.appendChild(ol);
+
 // =========>>>>>>>> To know which one is correct  <<<<<<<========================
         if(values['isCorrect']===true){
             let tickImg = document.createElement('img');
@@ -241,7 +258,7 @@ for (let questions of listOfQuestions) {
             tickImg.src = "/image/tick.png";
             ol.appendChild(tickImg);
             ol.style.display = "/image/tick.png";
-            console.log(ol);
+            
         }
 
     }
