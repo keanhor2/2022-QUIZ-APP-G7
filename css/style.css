@@ -1,19 +1,30 @@
-.edit-con .question1{
-    margin: auto;
-    width: 80%;
-}
-.edit-con h2{
-    background-color: rgb(31, 199, 255);
-    padding: 2%;
-    margin-bottom: -1%;
-    text-align: center;
-
-}
-.edit-con p{
+/*             Display by Meng  Mao             */
+body{
     font-family: sans-serif;
-    background-color: rgb(31, 199, 255);
-    text-align: center;
 }
-.edit-con .question1 ol li{
-    margin-top: 5%;
+.edit-con{
+    width: 80%;
+    margin: auto;
+}
+form{
+    width: 80%;
+    background-color: rgb(233, 233, 233);
+    margin: auto;
+    padding: 0.8%;
+}
+form ol{
+    display: flex;
+    background-color: rgb(255, 190, 201);
+    padding: 2%;
+}
+form ol li{
+    list-style: none;
+    width: 100%;
+}
+.question{
+    background-color: rgb(0, 4, 255);
+    padding: 3%;
+    color: white;
+    margin-bottom: 4%;
+    margin-top: 4%;
 }
