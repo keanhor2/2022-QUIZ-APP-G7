@@ -1,58 +1,71 @@
 /*             Display by Meng  Mao             */
-body{
+
+body {
     font-family: sans-serif;
 }
-.edit-con{
+
+.edit-con {
     width: 80%;
     margin: auto;
 }
-form{
+
+form {
     width: 80%;
     background-color: rgb(233, 233, 233);
     margin: auto;
     padding: 0.8%;
 }
-form ol{
+
+form ol {
     display: flex;
     background-color: rgb(255, 190, 201);
     padding: 2%;
 }
-form ol li{
+
+form ol li {
     list-style: none;
     width: 100%;
 }
-.question{
+
+.question {
     background-color: rgb(0, 4, 255);
     padding: 3%;
     color: white;
     margin-bottom: 4%;
     margin-top: 4%;
 }
-.edit-con .question1 ol li{
+
+.edit-con .question1 ol li {
     margin-top: 5%;
 }
+
+
 /* ===================================RunQuiz============================== */
-.run-container{
+
+.run-container {
     margin: auto;
     width: 80%;
 }
+
 form h3,
-form h1{
+form h1 {
     background: rgb(31, 199, 255);
     padding: 10px;
     text-align: center;
 }
-form li{
+
+form li {
     background: rgb(250, 218, 223);
     margin-top: 10px;
     padding: 10px;
 }
-.button{
+
+.button {
     display: flex;
     justify-content: center;
 }
-form button{
+
+form button {
     padding: 10px 30px;
     background: rgb(31, 199, 255);
-    
 }
