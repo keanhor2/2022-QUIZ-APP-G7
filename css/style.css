@@ -1,8 +1,10 @@
 /*             Display by Meng  Mao             */
-body{
+
+body {
     font-family: sans-serif;
 }
-.edit-con{
+
+.edit-con {
     width: 80%;
     margin: auto;
 }
@@ -37,15 +39,18 @@ form{
     margin: auto;
     padding: 2%;
 }
-form .ol-edit{
+
+form .ol-edit {
     display: flex;
     background-color: rgb(255, 247, 248);
 }
-form .li-edit{
+
+form .li-edit {
     list-style: none;
     width: 100%;
     height: 50px;
 }
+
 input[type='radio'] {
     width: 0;
 }
@@ -57,11 +62,15 @@ input[type='radio'] {
     margin-bottom: 3%;
     margin-top: 3%;
 }
-.edit-con .question1 ol li{
+
+.edit-con .question1 ol li {
     margin-top: 5%;
 }
+
+
 /*   ======>>>>>To set size of image tick >>>>>>====== */
-.tickImg{
+
+.tickImg {
     width: 50px;
 }
 /*   To prepare footer of quiz */
