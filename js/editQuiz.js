@@ -212,9 +212,8 @@ editCon.className = "edit-con";
 body.appendChild(editCon);
 
 const form = document.createElement('form');
-form.className = "form";
+form.id = "form";
 editCon.appendChild(form);
-
 
 // ============================ loop to create list to store data o DOM =======================
 for (let questions of listOfQuestions) {
@@ -236,7 +235,6 @@ for (let questions of listOfQuestions) {
     footerQuiz.appendChild(removeBtn);
     form.appendChild(footerQuiz);
     
-    
     for (let values of questions['listOfAnswers']) {
         let ol = document.createElement('ol');
         ol.className = 'ol-edit';
@@ -250,7 +248,6 @@ for (let questions of listOfQuestions) {
         ol.appendChild(radio);
         ol.appendChild(li);
         form.appendChild(ol);
-
 // =========>>>>>>>> To know which one is correct  <<<<<<<========================
         if(values['isCorrect']===true){
             let tickImg = document.createElement('img');
@@ -258,8 +255,19 @@ for (let questions of listOfQuestions) {
             tickImg.src = "/image/tick.png";
             ol.appendChild(tickImg);
             ol.style.display = "/image/tick.png";
-            
         }
 
     }
 }
+
+//   function to remove question=============================
+let removeQuestion = () => {
+    let cards = document.querySelectorAll('#form');
+    cards.forEach( card => {
+        card.style.display = 'none';
+    })
+}
+    
+let editBtn = document.querySelector('.removeBtn');
+editBtn.addEventListener('click',removeQuestion);
+console.log(form);
