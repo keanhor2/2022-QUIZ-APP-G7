@@ -59,7 +59,7 @@ let listOfQuestions = [{
     ]
 },
 {
-    question: "Q-4: How much arable land of Lao?",
+    question: "Q-4: How much arable land of Lao? (square kilometer)",
     listOfAnswers: [{
         answer: " A: 236800",
             isCorrect: true,
@@ -133,7 +133,7 @@ let listOfQuestions = [{
             isCorrect: false,
         },
         {
-            answer: " D: Enalish",
+            answer: " D: English",
             isCorrect: true,
         }
     ]
@@ -199,41 +199,50 @@ let listOfQuestions = [{
     ]
 }
 ];
+// >>>>>>>>>>>> All functions in here<<<<<<<<<<<<<<<<<<<<<<<
 
+     //=====function to remove question=====
+function removeQuestion(event) {
+	if(event.target.className === 'removeBtn'){
+    event.target.parentElement.remove();
+  }
+}
 
-//   =============>>>>>>>>> To get datas from local storages <<<<<<<==========================
+//      >>>>>>>> To get datas from local storages <<<<<<<
 localStorage.setItem('quiz', JSON.stringify(listOfQuestions));
 let newData = JSON.parse(localStorage.getItem('quiz'));
-
 let body = document.querySelector('body');
-//    ============>>>>>>>>>>>To create edit container <<<<<<<<<<<<=============================
+//       >>>>>>>>>>>To create edit container <<<<<<<<<<<<
 let editCon = document.createElement('div');
 editCon.className = "edit-con";
 body.appendChild(editCon);
-
+//   >>>>> to create form and append into edit container <<<<<<
 const form = document.createElement('form');
-form.id = "form";
+form.id = "idForm";
 editCon.appendChild(form);
 
-// ============================ loop to create list to store data o DOM =======================
-for (let questions of listOfQuestions) {
+let createBtn = document.createElement('button');
+createBtn.className = "createBtn";
+createBtn.textContent = "Create";
+editCon.appendChild(createBtn);
+ // ============================ loop to create list to store data o DOM =====
+ for (let questions of listOfQuestions) {
     let question = document.createElement('h3');
     question.className = "question";
-    question.textContent = questions['question'];
+    let pOfQuestion = document.createElement('p');
+    pOfQuestion.className = "pOfQuestion";
+    pOfQuestion.textContent = questions['question'];
+    question.appendChild(pOfQuestion);
     form.appendChild(question);
 
-
-    let footerQuiz = document.createElement('div');
-    footerQuiz.className = "footerQuiz";
     let editBtn = document.createElement('img');
     editBtn.src = "/image/pencil.png";
     editBtn.className = "editBtn";
-    footerQuiz.appendChild(editBtn);
+    question.appendChild(editBtn);         // change from footerQuiz to question
     let removeBtn = document.createElement('img');
     removeBtn.src = "/image/trush.png";
     removeBtn.className = "removeBtn";
-    footerQuiz.appendChild(removeBtn);
-    form.appendChild(footerQuiz);
+    question.appendChild(removeBtn);        
     
     for (let values of questions['listOfAnswers']) {
         let ol = document.createElement('ol');
@@ -247,7 +256,7 @@ for (let questions of listOfQuestions) {
         li.textContent = values['answer'];
         ol.appendChild(radio);
         ol.appendChild(li);
-        form.appendChild(ol);
+        question.appendChild(ol);    
 // =========>>>>>>>> To know which one is correct  <<<<<<<========================
         if(values['isCorrect']===true){
             let tickImg = document.createElement('img');
@@ -256,18 +265,10 @@ for (let questions of listOfQuestions) {
             ol.appendChild(tickImg);
             ol.style.display = "/image/tick.png";
         }
+        removeBtn.addEventListener('click',removeQuestion);
+        
+        console.log(form);
 
     }
-}
-
-//   function to remove question=============================
-let removeQuestion = () => {
-    let cards = document.querySelectorAll('#form');
-    cards.forEach( card => {
-        card.style.display = 'none';
-    })
-}
     
-let editBtn = document.querySelector('.removeBtn');
-editBtn.addEventListener('click',removeQuestion);
-console.log(form);
+}
