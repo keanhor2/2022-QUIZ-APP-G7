@@ -199,25 +199,19 @@ let listOfQuestions = [{
     ]
 }
 ];
-//===========     All variables      ===============================================
-let form = document.querySelector('form');
-//=====function to remove each of Question==========================================
-function removeQuestion(event) {
-    event.preventDefault();
-    if(event.target.className === 'removeBtn'){
-        event.target.parentElement.remove();
-    }
-}
-// =====function to display quiz====================================================
-function displayQuis(){
     
-// ===== loop to create list to store data o DOM ===============================
+//===========     All variables      ==============================================
+let form = document.querySelector('form');
+// =====function to display quiz===================================================
+function displayQuiz(){
+    
+// ===== loop to create list to store data o DOM ==================================
     for (var questions of listOfQuestions) {
+
         let numberOfQuestion =listOfQuestions.indexOf(questions)+1;
-        console.log(numberOfQuestion);
-        let titleOfQuestion = document.createElement('h3');
+        var titleOfQuestion = document.createElement('h3');
         titleOfQuestion.className = "question";
-        //==============================================================================
+        //=========================================================================
         var pOfQuestion = document.createElement('p');
         pOfQuestion.className = "pOfQuestion";
         pOfQuestion.textContent =numberOfQuestion+ questions['titleOfQuestion'];
@@ -227,10 +221,13 @@ function displayQuis(){
         editBtn.src = "../image/pencil.png";
         editBtn.className = "editBtn";
         titleOfQuestion.appendChild(editBtn);       
-        let removeBtn = document.createElement('img');
+        var removeBtn = document.createElement('img');
         removeBtn.src = "../image/trush.png";
         removeBtn.className = "removeBtn";
-        titleOfQuestion.appendChild(removeBtn);        
+        titleOfQuestion.appendChild(removeBtn); 
+        
+        
+        
         for (let values of questions['listOfAnswers']) {
             let ol = document.createElement('ol');
             ol.className = 'ol-edit';
@@ -243,8 +240,10 @@ function displayQuis(){
             li.textContent = values['titleOfAnswer'];
             ol.appendChild(radio);
             ol.appendChild(li);
-            titleOfQuestion.appendChild(ol);    
-    // ======================== To know which one is correct ==================================
+            titleOfQuestion.appendChild(ol);   
+            
+                
+    // ======================== To know which one is correct ======================
                 if(values['isCorrect']===true){
                     let tickImg = document.createElement('img');
                     tickImg.className = "tickImg";
@@ -252,8 +251,10 @@ function displayQuis(){
                     ol.appendChild(tickImg);
                     ol.style.display = "image/tick.png";
                     }
-                    removeBtn.addEventListener('click',removeQuestion);
-                }
-            }
+        }
+    }
 }
-displayQuis();
+
+// removeBtn.addEventListener('click',removeQuestion);
+
+displayQuiz();
