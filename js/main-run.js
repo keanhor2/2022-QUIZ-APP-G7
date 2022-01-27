@@ -134,33 +134,33 @@ let listOfQuestion = [{
             }
         ]
     }, {
-        question: "Q-8: what is the laraest and capital city of Indonesia?",
+        question: "Q-8: Where did USA poeple come from?",
         listOfAnswer: [{
-                answer: "A:  Jakata",
+                answer: "A:  Cambodia",
                 isCorrect: true,
             },
             {
-                answer: "B:  Surabaya",
-                isCorrect: false,
+                answer: "B:  Korea",
+                isCorrect: true,
             },
             {
-                answer: "C:  Makasar",
-                isCorrect: false,
+                answer: "C:  China",
+                isCorrect: true,
             },
             {
-                answer: "D:  Banduna",
-                isCorrect: false,
+                answer: "D:  Erupe countries",
+                isCorrect: true,
             }
         ]
     }, {
-        question: "Q-9: What is the reliaion of Brunei?",
+        question: "Q-9: What does Cambodian religion?",
         listOfAnswer: [{
                 answer: "A:  Buddhist",
-                isCorrect: false,
+                isCorrect: true,
             },
             {
                 answer: "B:  Christain",
-                isCorrect: false,
+                isCorrect: true,
             },
             {
                 answer: "C:  Chatolic",
@@ -172,21 +172,21 @@ let listOfQuestion = [{
             }
         ]
     }, {
-        question: "Q-10: How many island in Philippines?",
+        question: "Q-10: There are many subjects in PNC training, what are they?",
         listOfAnswer: [{
-                answer: "A:  7100",
-                isCorrect: false,
-            },
-            {
-                answer: "B:  6900",
-                isCorrect: false,
-            },
-            {
-                answer: "C:  7000",
+                answer: "A:  Python",
                 isCorrect: true,
             },
             {
-                answer: "D:  6800",
+                answer: "B:  JavaScript",
+                isCorrect: true,
+            },
+            {
+                answer: "C:  Singing",
+                isCorrect: false,
+            },
+            {
+                answer: "D: songs writing",
                 isCorrect: false,
             }
         ]
@@ -195,46 +195,75 @@ let listOfQuestion = [{
 // ============================ Call the form to append new element =============================
 let mainContainerOFrun = document.querySelector('.mainContainer-run');
 // ============================ loop to create list to store data on DOM =========================
-
+let total = 0;
+let inputTypeClass = 0;
+var storeIscorrectVal = [];
 // ------------------------------loop on question key to call question value & display points ---------------------
-function displayQuiz() {
-    for (let el of listOfQuestion) {
+function displayQuiz(storeIscorrectVal) {
+    for (let elements of listOfQuestion) {
         let questionLine = document.createElement('div');
         questionLine.className = 'questionLine';
         let h3 = document.createElement('h3');
-        h3.textContent = el['question'];
+        h3.textContent = elements['question'];
         let point = document.createElement('span');
         point.textContent = '10 points';
         point.className = 'points'
         questionLine.appendChild(point)
         questionLine.appendChild(h3);
         mainContainerOFrun.appendChild(questionLine);
-        // ------------------------------loop on listOfAnswer key to call listOfAnswer value ---------------------
-        for (let values of el['listOfAnswer']) {
+        inputTypeClass += 1
+            // ------------------------------loop on listOfAnswer key to call listOfAnswer value ---------------------
+        for (let values of elements['listOfAnswer']) {
+
             let ol = document.createElement('ol');
             ol.className = 'ol';
-            let radio = document.createElement('input')
-            radio.type = 'radio'
-            radio.name = 'listOfAnswer'
+            let inputType = document.createElement('input')
+            if (inputTypeClass < 8) {
+                inputType.type = 'radio'
+            } else {
+                inputType.type = 'checkbox'
+            }
+            inputType.className = 'inputTypes'
+            inputType.name = 'listOfAnswer' + inputTypeClass
+            storeIscorrectVal.push(values['isCorrect'])
+
             let li = document.createElement('li');
-            ol.appendChild(radio)
+            ol.appendChild(inputType)
             li.textContent = values['answer'];
             ol.appendChild(li);
             questionLine.appendChild(ol);
             mainContainerOFrun.appendChild(questionLine);
+            // -- -- -- -- -- -- -- -- -- -- -- inputType have check or not ----------------------
         }
 
     }
 }
-displayQuiz()
-    // ============================ create submit btn ================================================
+displayQuiz(storeIscorrectVal);
+// ============================ function to check user click =====================================
+function checkResult() {
+    let checktypeOfInputs = document.getElementsByTagName('input');
+    let eachPoint = document.getElementById('points');
+    for (let i = 0; i < checktypeOfInputs.length; i++) {
+        if (checktypeOfInputs[i].checked && storeIscorrectVal[i] === true) {
+            total += 10;
+            poits.textContent = total;
+            poits.style.color = 'rgb(0, 153, 255)'
+        }
+    }
+}
+let poits = document.getElementById('score');
+// ============================ create submit btn ================================================
 let submit = document.createElement('input');
 submit.type = 'submit';
 submit.value = 'SUBMIT'
 submit.id = 'submit';
+submit.addEventListener('click', checkResult)
 mainContainerOFrun.appendChild(submit)
-    // ============================ store listOfQuestion to localStorage ================================================
+    // ============================ store listOfQuestion to localStorage =========================
 function saveData() {
     localStorage.setItem('quiz', JSON.stringify(listOfQuestion));
 }
 let newData = JSON.parse(localStorage.getItem('quiz'));
+
+// ================================= Variale  ====================================================
+// let total = 0;

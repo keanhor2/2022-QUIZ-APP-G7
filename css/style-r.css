@@ -95,6 +95,11 @@
         height: 3vh;
     }
     
+    input[type='checkbox'] {
+        width: 3%;
+        height: 3vh;
+    }
+    
     .points {
         display: flex;
         justify-content: flex-end;
