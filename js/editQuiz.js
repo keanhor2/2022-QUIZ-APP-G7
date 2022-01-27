@@ -257,3 +257,21 @@ function displayQuis(){
             }
 }
 displayQuis();
+// =================================add question=====================================
+let btnAdd= document.getElementById("btnAdd");
+let inputQuestion=document.getElementById("question")
+let inputAnswer= document.getElementById("answer");
+let image=document.getElementById("img");
+let listQuestion={};
+let listAnswer={};
+// let idOfAnswer=1;
+function add(event){
+    if (event.target.id==="btnAdd"){
+        listQuestion["titleOfQuesion"]=inputQuestion.value;
+        listAnswer["titleOfAnswer"]=inputAnswer.value;
+        // idOfAnswer+=1
+        console.log(listAnswer);
+        console.log(listQuestion);
+    }
+}
+btnAdd.addEventListener("click",add);
