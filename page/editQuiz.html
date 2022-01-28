@@ -10,45 +10,49 @@
 </head>
 
 <body>
-    <div class="container-home-edit">
-        <nav>
-            <ul>
-                <a href="#" id="stay" class="showEditQuiz">
-                    <li>EDIT QUIZ</li>
-                </a>
-                <a href="runQuiz.html">
-                    <li>RUN QUIZ</li>
-                </a>
-            </ul>
-        </nav>
-    </div>
-    <!-- ================kea=========================== -->
-    <!-- =================================== -->
-    <div class="edit-con">
-        <button id="btnAdd">+ADD</button>
+    <div class="container-edit">
+        <div class="container-home-edit">
+            <nav>
+                <ul>
+                    <a href="#" id="stay" class="showEditQuiz">
+                        <li>EDIT QUIZ</li>
+                    </a>
+                    <a href="runQuiz.html">
+                        <li>RUN QUIZ</li>
+                    </a>
+                    <span id="pink">M<span id="purple">S</span><span id="skyblue">K</span></span>
+                </ul>
+            </nav>
+        </div>
+        <!-- ================kea=========================== -->
+        <!-- =================================== -->
+        <div class="edit-con">
+            <button id="btnAdd">+ADD</button>
 
-        <form id="idForm" action="">
-            <input type="text" id="question" placeholder="question">
-            <div class="addAnswer">
-                <input type="text" id="answer1" placeholder="answer1">
-            </div>
-            <div class="addAnswer">
-                <input type="text" id="answer2" placeholder="answer2">
-            </div>
-            <div class="addAnswer">
-                <input type="text" id="answer3" placeholder="answer3">
-            </div>
-            <div class="addAnswer">
-                <input type="text" id="answer4" placeholder="answer4">
-            </div>
-        </form>
-        <div class="question"></div>
-        <div class="answer1"></div>
-        <div class="answer2"></div>
-        <div class="answer3"></div>
-        <div class="answer4"></div>
-        <button class="createBtn">Create</button>
+            <form id="idForm" action="">
+                <input type="text" id="question" placeholder="question">
+                <div class="addAnswer">
+                    <input type="text" id="answer1" placeholder="answer1">
+                </div>
+                <div class="addAnswer">
+                    <input type="text" id="answer2" placeholder="answer2">
+                </div>
+                <div class="addAnswer">
+                    <input type="text" id="answer3" placeholder="answer3">
+                </div>
+                <div class="addAnswer">
+                    <input type="text" id="answer4" placeholder="answer4">
+                </div>
+            </form>
+            <div class="question"></div>
+            <div class="answer1"></div>
+            <div class="answer2"></div>
+            <div class="answer3"></div>
+            <div class="answer4"></div>
+            <button class="createBtn">Create</button>
+        </div>
     </div>
 </body>
 <script src="../js/editQuiz.js"></script>
+
 </html>
