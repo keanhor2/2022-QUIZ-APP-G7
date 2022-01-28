@@ -100,7 +100,7 @@ function checkResult() {
 
     // -------------------------- hide display quiz container annd show finish part container and validate on check -------------------------
     if (storeCheckIndex.length < 10) {
-        alert('You must titleOfAnswer all question')
+        alert('You must answer all the questions!')
     } else {
         finishQ.style.display = 'block';
         submit.style.display = 'none'

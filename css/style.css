@@ -1,16 +1,25 @@
 /*             Display by Meng  Mao             */
 
 body {
+    display: flex;
+    justify-content: center;
     font-family: sans-serif;
 }
 
+.container-edit {
+    width: 70%;
+}
+
 .edit-con {
-    width: 60%;
+    width: 81.5%;
     margin: auto;
 }
+
 nav {
     background: rgb(253, 253, 253);
     border-bottom: 1px solid blue;
+    width: 80%;
+    margin-left: 10%;
 }
 
 nav ul {
@@ -23,8 +32,18 @@ nav ul span {
     color: skyblue;
 }
 
+#pink {
+    margin-left: 65%;
+    color: palevioletred;
+}
+
+#purple {
+    color: purple;
+}
+
 nav ul a li {
     list-style: none;
+    font-size: small;
 }
 
 nav ul a {
@@ -33,9 +52,9 @@ nav ul a {
     text-decoration: none;
 }
 
-form{
+form {
     width: 94%;
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(248, 248, 248);
     margin: auto;
     padding: 2%;
     padding-bottom: 7%;
@@ -44,7 +63,7 @@ form{
 
 form .ol-edit {
     display: flex;
-    background-color: rgb(255, 247, 248);
+    background-color: rgb(255, 255, 255);
 }
 
 form .li-edit {
@@ -60,7 +79,7 @@ input[type='radio'] {
     width: 0;
 }
 
-.pOfQuestion{
+.pOfQuestion {
     background-color: rgb(0, 153, 255);
     padding: 2%;
     margin-bottom: 3%;
@@ -72,9 +91,11 @@ input[type='radio'] {
 .edit-con .question1 ol li {
     margin-top: 5%;
 }
-.showEditQuiz{
-    border-bottom: 2px solid blue;
+
+.showEditQuiz {
+    border-bottom: 1px solid blue;
 }
+
 
 /*   ======>>>>>To set size of image tick >>>>>>====== */
 
@@ -84,25 +105,28 @@ input[type='radio'] {
     width: 25px;
     height: 25px;
 }
+
+
 /*   To prepare footer of quiz */
 
-.editBtn{
+.editBtn {
     margin-left: 85%;
     width: 4%;
     height: 5%;
     padding: -5%;
 }
-.removeBtn{
+
+.removeBtn {
     margin-left: 3%;
     width: 4%;
     height: 5%;
     padding: -5%;
 }
 
-.createBtn{
+.createBtn {
     background-color: rgb(0, 153, 255);
     margin-left: 45%;
-    padding:1.5% 4% ;
+    padding: 1.5% 4%;
     font-size: large;
     font-weight: bold;
     border-radius: 5%;
@@ -110,38 +134,47 @@ input[type='radio'] {
     margin-bottom: 5%;
     border: none;
 }
-.createBtn:hover{
+
+.createBtn:hover {
     background-color: rgb(150, 172, 179);
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
+
+
 /* ===========================================border of Meng ====================================================== */
+
+
 /* ========================add question=========================================== */
 
-#btnAdd{
-
+#btnAdd {
     padding: 12px 25px;
-    margin-left: 87.6%;
+    margin: 2.5%;
+    float: right;
     margin-top: 5px;
     background: rgb(0, 153, 255);
     border: none;
-
 }
-#question{
+
+#question {
     width: 93.7%;
     padding: 20px;
 }
-#answer1,#answer2,#answer3,#answer4{
+
+#answer1,
+#answer2,
+#answer3,
+#answer4 {
     width: 97%;
     padding: 10px;
     margin-top: 5px;
-    
 }
 
-#img{
+#img {
     width: 2.5%;
     margin-left: 20px;
 }
-.addAnswer{
-   display: flex;
+
+.addAnswer {
+    display: flex;
     align-items: center;
 }
