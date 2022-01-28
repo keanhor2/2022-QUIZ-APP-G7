@@ -75,7 +75,8 @@
         margin-left: 4%;
     }
     
-    #submit {
+    #submit,
+    button {
         width: 14%;
         padding: 1%;
         border: 1px solid white;
@@ -106,4 +107,21 @@
         margin: 1%;
         padding: 1.5%;
         border-top: 1px solid rgb(190, 190, 190);
+    }
+    
+    .finishQuizPart {
+        margin-top: 2%;
+        width: 96%;
+        height: 35vh;
+        background-color: rgb(0, 153, 255);
+        padding: 2%;
+    }
+    
+    .finishQuizPart h4,
+    p {
+        color: white;
+    }
+    
+    .trueLi {
+        display: none;
     }
