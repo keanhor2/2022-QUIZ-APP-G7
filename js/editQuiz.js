@@ -253,41 +253,43 @@ function displayQuiz(){
     }
 }
 // displayQuis();
-// =================================add question=====================================
+// =================================Variable=====================================
 let btnAdd= document.getElementById("btnAdd");
 let inputQuestion=document.getElementById("question")
 let inputAnswer1= document.getElementById("answer1");
 let inputAnswer2= document.getElementById("answer2");
 let inputAnswer3= document.getElementById("answer3");
 let inputAnswer4= document.getElementById("answer4");
-
-let listDataOfQuestion=[];
-// let listAnswer={};
+let data=[];
+let listDataOfAnswer=[];
 let titleQuestion={};
 let titleAnswer1={};
 let titleAnswer2={};
 let titleAnswer3={};
 let titleAnswer4={};
+//
+// Function =================================
+//
 function add(event){
     if (event.target.id==="btnAdd"){
-        titleQuestion["titleOfQuesion"]=inputQuestion.value;
-        titleAnswer1["titleOfAnswer"]=inputAnswer1.value;
-        titleAnswer1["isCorrect"]=true
-        titleAnswer2["titleOfAnswer"]=inputAnswer2.value;
-        titleAnswer2["isCorrect"]=false
-        titleAnswer3["titleOfAnswer"]=inputAnswer3.value;
-        titleAnswer3["isCorrect"]=false
-        titleAnswer4["titleOfAnswer"]=inputAnswer4.value;
-        titleAnswer4["isCorrect"]=false
+        titleQuestion.titleOfQuesion=inputQuestion.value;
+        titleAnswer1.titleOfAnswer=inputAnswer1.value;
+        titleAnswer1.isCorrect=true
+        titleAnswer2.titleOfAnswer=inputAnswer2.value;
+        titleAnswer2.isCorrect=false
+        titleAnswer3.titleOfAnswer=inputAnswer3.value;
+        titleAnswer3.isCorrect=false
+        titleAnswer4.titleOfAnswer=inputAnswer4.value;
+        titleAnswer4.isCorrect=false
+        titleQuestion.listOfAnswers=listDataOfAnswer;
     }
-    listDataOfQuestion.push(titleQuestion);
+    data.push(titleQuestion);
     listDataOfAnswer.push(titleAnswer1);
     listDataOfAnswer.push(titleAnswer4);
     listDataOfAnswer.push(titleAnswer3);
     listDataOfAnswer.push(titleAnswer2);
-    console.log(listDataOfQuestion);
-    localStorage.setItem('quiz', JSON.stringify(listDataOfQuestion));
+    console.log(data);
+    // localStorage.setItem('quiz', JSON.stringify(listDataOfQuestion));
 }
 btnAdd.addEventListener("click",add);
-
 displayQuiz();
