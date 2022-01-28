@@ -2,7 +2,7 @@
 //  ===========    VARIABLES     ==============================================
 let data = [];
 const form = document.querySelector('form');
-const removeBtn = document.querySelector('removeBtn');
+let removeBtn = document.querySelector('removeBtn');
 
 
 //  ===========    FUNCTION     ==============================================
@@ -12,29 +12,43 @@ function displayQuiz() {
 
         // Find index of each questions    
         let numberOfQuestion = data.indexOf(questions) + 1;
-        let titleOfQuestion = document.createElement('h3');
-        titleOfQuestion.className = "question";
-
+        let questionTitle = document.createElement('h3');
+        questionTitle.className = "question";
         // Title of each questions   
         let pOfQuestion = document.createElement('p');
         pOfQuestion.className = "pOfQuestion";
-
+        
         // Number in order of each questions   
-        pOfQuestion.textContent = numberOfQuestion + questions.titleOfQuestion;
-        titleOfQuestion.appendChild(pOfQuestion);
-        form.appendChild(titleOfQuestion);
+        pOfQuestion.textContent = numberOfQuestion + questions.titleOfQuesion;
+        questionTitle.appendChild(pOfQuestion);
+        form.appendChild(questionTitle);
 
         // Create image of pencil to edit questions & append into edit button
         let editBtn = document.createElement('img');
         editBtn.src = "../image/pencil.png";
         editBtn.className = "editBtn";
-        titleOfQuestion.appendChild(editBtn);
+        questionTitle.appendChild(editBtn);
 
         // Create image of trush to remove questions & append into remove button
         let removeBtn = document.createElement('img');
         removeBtn.src = "../image/trush.png";
         removeBtn.className = "removeBtn";
-        titleOfQuestion.appendChild(removeBtn);
+        questionTitle.appendChild(removeBtn);
+
+
+        function removeQuestion() {
+            //  find the index of the question
+            // numberOfQuestion.remove();
+            pOfQuestion.textContent = "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhh";
+            // remove the question of the array of data
+        
+            // save data
+            saveData()
+        
+            // refresh dom
+            // displayQuiz()
+        }
+        removeBtn.addEventListener('click', removeQuestion);
 
         // Loop to create position of  each answers   
         for (let values of questions.listOfAnswers) {
@@ -51,7 +65,7 @@ function displayQuiz() {
             li.textContent = values['titleOfAnswer'];
             ol.appendChild(radio);
             ol.appendChild(li);
-            titleOfQuestion.appendChild(ol);
+            questionTitle.appendChild(ol);
 
             //  To know which one is correct    
             if (values['isCorrect'] === true) {
@@ -61,7 +75,7 @@ function displayQuiz() {
                 ol.appendChild(tickImg);
                 ol.style.display = "image/tick.png";
             }
-            // console.log(form);
+            // console.log(questionTitle);
 
         }
     }
@@ -88,25 +102,64 @@ function loadData() {
 }
 
 
-function removeQuestion() {
-    //  find the index of the question
-    console.log(numberOfQuestion);
-    // remove the question of the array of data
+// function removeQuestion() {
+//     //  find the index of the question
+    
+//     // remove the question of the array of data
 
-    // save data
-    saveData()
+//     // save data
+//     saveData()
 
-    // refresh dom
-    displayQuiz()
+//     // refresh dom
+//     displayQuiz()
+// }
+//
+// Function add questions 
+//
+function add(event){
+    if (event.target.id==="btnAdd"){
+        titleQuestion.titleOfQuesion=inputQuestion.value;
+        titleAnswer1.titleOfAnswer=inputAnswer1.value;
+        titleAnswer1.isCorrect=true
+        titleAnswer2.titleOfAnswer=inputAnswer2.value;
+        titleAnswer2.isCorrect=false
+        titleAnswer3.titleOfAnswer=inputAnswer3.value;
+        titleAnswer3.isCorrect=false
+        titleAnswer4.titleOfAnswer=inputAnswer4.value;
+        titleAnswer4.isCorrect=false
+        titleQuestion.listOfAnswers=listDataOfAnswer;
+    }
+    data.push(titleQuestion);
+    console.log(data);
+    // localStorage.setItem('quiz', JSON.stringify(listDataOfQuestion));
+    saveData();
 }
-
 //  ===========    MAIN     =================================================
 
 
 // 1 = Read from local storage
 loadData();
 
+// =================================Variable=====================================
+let btnAdd= document.getElementById("btnAdd");
+let inputQuestion=document.getElementById("question")
+let inputAnswer1= document.getElementById("answer1");
+let inputAnswer2= document.getElementById("answer2");
+let inputAnswer3= document.getElementById("answer3");
+let inputAnswer4= document.getElementById("answer4");
+let listDataOfAnswer=[];
+let titleQuestion={};
+let titleAnswer1={};
+let titleAnswer2={};
+let titleAnswer3={};
+let titleAnswer4={};
+//
+listDataOfAnswer.push(titleAnswer1);
+listDataOfAnswer.push(titleAnswer4);
+listDataOfAnswer.push(titleAnswer3);
+listDataOfAnswer.push(titleAnswer2);
+
+btnAdd.addEventListener("click",add);
 
 displayQuiz();
 
-// removeBtn.addEventListener('click', removeQuestion);
