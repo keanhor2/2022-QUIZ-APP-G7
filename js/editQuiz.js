@@ -6,6 +6,24 @@ let removeBtn = document.querySelector('removeBtn');
 
 
 //  ===========    FUNCTION     ==============================================
+
+// let toRemoveQuestion = questions.titleOfQuesion;
+function removeQuestion(event) {
+    let  = event.target.parentNode;
+    
+    //  find the index of the question
+    for (let questions of data) {
+        let numberOfQuestion = data.indexOf(questions) + 1;
+    // remove the question of the array of data
+    }
+    // save data
+    saveData()
+
+    // refresh dom
+    displayQuiz()
+}
+
+
 function displayQuiz() {
 
     for (let questions of data) {
@@ -17,9 +35,9 @@ function displayQuiz() {
         // Title of each questions   
         let pOfQuestion = document.createElement('p');
         pOfQuestion.className = "pOfQuestion";
-        
+
         // Number in order of each questions   
-        pOfQuestion.textContent = numberOfQuestion + questions.titleOfQuesion;
+        pOfQuestion.textContent = numberOfQuestion + questions.titleOfQuestion;
         questionTitle.appendChild(pOfQuestion);
         form.appendChild(questionTitle);
 
@@ -35,19 +53,6 @@ function displayQuiz() {
         removeBtn.className = "removeBtn";
         questionTitle.appendChild(removeBtn);
 
-
-        function removeQuestion() {
-            //  find the index of the question
-            // numberOfQuestion.remove();
-            pOfQuestion.textContent = "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhh";
-            // remove the question of the array of data
-        
-            // save data
-            saveData()
-        
-            // refresh dom
-            // displayQuiz()
-        }
         removeBtn.addEventListener('click', removeQuestion);
 
         // Loop to create position of  each answers   
@@ -100,34 +105,20 @@ function loadData() {
         data = JSON.parse(dataFromLocalStorage);
     }
 }
-
-
-// function removeQuestion() {
-//     //  find the index of the question
-    
-//     // remove the question of the array of data
-
-//     // save data
-//     saveData()
-
-//     // refresh dom
-//     displayQuiz()
-// }
-//
 // Function add questions 
 //
-function add(event){
-    if (event.target.id==="btnAdd"){
-        titleQuestion.titleOfQuesion=inputQuestion.value;
-        titleAnswer1.titleOfAnswer=inputAnswer1.value;
-        titleAnswer1.isCorrect=true
-        titleAnswer2.titleOfAnswer=inputAnswer2.value;
-        titleAnswer2.isCorrect=false
-        titleAnswer3.titleOfAnswer=inputAnswer3.value;
-        titleAnswer3.isCorrect=false
-        titleAnswer4.titleOfAnswer=inputAnswer4.value;
-        titleAnswer4.isCorrect=false
-        titleQuestion.listOfAnswers=listDataOfAnswer;
+function add(event) {
+    if (event.target.id === "btnAdd") {
+        titleQuestion.titleOfQuesion = inputQuestion.value;
+        titleAnswer1.titleOfAnswer = inputAnswer1.value;
+        titleAnswer1.isCorrect = true
+        titleAnswer2.titleOfAnswer = inputAnswer2.value;
+        titleAnswer2.isCorrect = false
+        titleAnswer3.titleOfAnswer = inputAnswer3.value;
+        titleAnswer3.isCorrect = false
+        titleAnswer4.titleOfAnswer = inputAnswer4.value;
+        titleAnswer4.isCorrect = false
+        titleQuestion.listOfAnswers = listDataOfAnswer;
     }
     data.push(titleQuestion);
     console.log(data);
@@ -141,25 +132,25 @@ function add(event){
 loadData();
 
 // =================================Variable=====================================
-let btnAdd= document.getElementById("btnAdd");
-let inputQuestion=document.getElementById("question")
-let inputAnswer1= document.getElementById("answer1");
-let inputAnswer2= document.getElementById("answer2");
-let inputAnswer3= document.getElementById("answer3");
-let inputAnswer4= document.getElementById("answer4");
-let listDataOfAnswer=[];
-let titleQuestion={};
-let titleAnswer1={};
-let titleAnswer2={};
-let titleAnswer3={};
-let titleAnswer4={};
+let btnAdd = document.getElementById("btnAdd");
+let inputQuestion = document.getElementById("question")
+let inputAnswer1 = document.getElementById("answer1");
+let inputAnswer2 = document.getElementById("answer2");
+let inputAnswer3 = document.getElementById("answer3");
+let inputAnswer4 = document.getElementById("answer4");
+let listDataOfAnswer = [];
+let titleQuestion = {};
+let titleAnswer1 = {};
+let titleAnswer2 = {};
+let titleAnswer3 = {};
+let titleAnswer4 = {};
 //
 listDataOfAnswer.push(titleAnswer1);
 listDataOfAnswer.push(titleAnswer4);
 listDataOfAnswer.push(titleAnswer3);
 listDataOfAnswer.push(titleAnswer2);
 
-btnAdd.addEventListener("click",add);
+btnAdd.addEventListener("click", add);
 
 displayQuiz();
 
