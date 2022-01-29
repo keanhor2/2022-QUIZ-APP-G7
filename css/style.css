@@ -209,3 +209,12 @@
         margin-left: 1%;
         margin-top: 2%;
     }
+    
+    .homCon {
+        width: 100%;
+    }
+    
+    #image {
+        margin-left: 25%;
+        width: 50%;
+    }

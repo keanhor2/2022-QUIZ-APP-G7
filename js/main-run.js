@@ -32,7 +32,7 @@ function displayQuiz(storeIscorrectVal, storeCountH3) {
         let h3 = document.createElement('h3');
         h3.textContent = inputTypeClass + elements['question'];
         let point = document.createElement('span');
-        point.textContent = '6.4 points';
+        point.textContent = '6.25 points';
         point.className = 'points'
         questionLine.appendChild(point)
         questionLine.appendChild(h3);
