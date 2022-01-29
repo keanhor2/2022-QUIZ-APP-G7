@@ -158,20 +158,30 @@ input[type='radio'] {
 #question {
     width: 93.7%;
     padding: 20px;
+    border: none;
+    
 }
 
 #answer1,
 #answer2,
 #answer3,
 #answer4 {
-    width: 97%;
+    width: 85%;
     padding: 10px;
     margin-top: 5px;
+    border: none;
 }
 
 #img {
     width: 2.5%;
     margin-left: 20px;
+}
+
+#option1,#option2,#option3,#option4 {
+    margin-left: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
 }
 
 .addAnswer {

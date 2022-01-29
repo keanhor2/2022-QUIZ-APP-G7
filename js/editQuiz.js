@@ -1,65 +1,68 @@
-
 //  ===========    VARIABLES     ==============================================
-let data = [];
 const form = document.querySelector('form');
 let removeBtn = document.querySelector('removeBtn');
-
-
+let data = [];
+let btnAdd = document.getElementById("btnAdd");
+let inputQuestion = document.getElementById("question");
+let inputAnswer1 = document.getElementById("answer1");
+let inputAnswer2 = document.getElementById("answer2");
+let inputAnswer3 = document.getElementById("answer3");
+let inputAnswer4 = document.getElementById("answer4");
 //  ===========    FUNCTION     ==============================================
 
 // let toRemoveQuestion = questions.titleOfQuesion;
-function removeQuestion(event) {
-    let  = event.target.parentNode;
-    
+function
+removeQuestion(event) {
+    let = event.target.parentNode;
+
     //  find the index of the question
     for (let questions of data) {
         let numberOfQuestion = data.indexOf(questions) + 1;
-    // remove the question of the array of data
+        // remove the question of the array of data
     }
     // save data
     saveData()
-
+    
     // refresh dom
     displayQuiz()
 }
 
 
 function displayQuiz() {
-
     for (let questions of data) {
-
+        
         // Find index of each questions    
-        let numberOfQuestion = data.indexOf(questions) + 1;
+        let numberOfQuestion = data.indexOf(questions) + 1 +". ";
         let questionTitle = document.createElement('h3');
         questionTitle.className = "question";
         // Title of each questions   
         let pOfQuestion = document.createElement('p');
         pOfQuestion.className = "pOfQuestion";
-
+        
         // Number in order of each questions   
         pOfQuestion.textContent = numberOfQuestion + questions.titleOfQuestion;
         questionTitle.appendChild(pOfQuestion);
         form.appendChild(questionTitle);
-
+        
         // Create image of pencil to edit questions & append into edit button
         let editBtn = document.createElement('img');
         editBtn.src = "../image/pencil.png";
         editBtn.className = "editBtn";
         questionTitle.appendChild(editBtn);
-
+        
         // Create image of trush to remove questions & append into remove button
         let removeBtn = document.createElement('img');
         removeBtn.src = "../image/trush.png";
         removeBtn.className = "removeBtn";
         questionTitle.appendChild(removeBtn);
-
+        
         removeBtn.addEventListener('click', removeQuestion);
-
+        
         // Loop to create position of  each answers   
-        for (let values of questions.listOfAnswers) {
+        for (let values of questions.listOfAnswer) {
             let ol = document.createElement('ol');
             ol.className = 'ol-edit';
-
+            
             // To create type of radio button    
             let radio = document.createElement('input');
             radio.type = 'radio';
@@ -71,9 +74,8 @@ function displayQuiz() {
             ol.appendChild(radio);
             ol.appendChild(li);
             questionTitle.appendChild(ol);
-
             //  To know which one is correct    
-            if (values['isCorrect'] === true) {
+            if (values['isCorrect'] === "true") {
                 var tickImg = document.createElement('img');
                 tickImg.className = "tickImg";
                 tickImg.src = "../image/tick.png";
@@ -81,10 +83,11 @@ function displayQuiz() {
                 ol.style.display = "image/tick.png";
             }
             // console.log(questionTitle);
-
+            
         }
     }
 }
+displayQuiz()
 
 //
 // Set data to local storage    
@@ -100,29 +103,34 @@ function loadData() {
     let dataFromLocalStorage = localStorage.getItem('data');
     if (dataFromLocalStorage === null) {
         data = []
-    }
-    else {
+    } else {
         data = JSON.parse(dataFromLocalStorage);
     }
 }
+//
 // Function add questions 
 //
-function add(event) {
-    if (event.target.id === "btnAdd") {
-        titleQuestion.titleOfQuesion = inputQuestion.value;
-        titleAnswer1.titleOfAnswer = inputAnswer1.value;
-        titleAnswer1.isCorrect = true
-        titleAnswer2.titleOfAnswer = inputAnswer2.value;
-        titleAnswer2.isCorrect = false
-        titleAnswer3.titleOfAnswer = inputAnswer3.value;
-        titleAnswer3.isCorrect = false
-        titleAnswer4.titleOfAnswer = inputAnswer4.value;
-        titleAnswer4.isCorrect = false
-        titleQuestion.listOfAnswers = listDataOfAnswer;
+let option1 = document.querySelector("#option1");
+let option2 = document.querySelector("#option2");
+let option3 = document.querySelector("#option3");
+let option4 = document.querySelector("#option4");
+function add() {
+   
+    if (inputQuestion.value == "" || inputAnswer1.value == "" || inputAnswer2.value == "" || inputAnswer3.value == "" ||
+    inputAnswer4.value === "") {
+        window.alert("Please write input the feild!")
+    } else {
+        data.push({
+            titleOfQuestion: inputQuestion.value,
+            listOfAnswer: [
+                { titleOfAnswer: inputAnswer1.value, isCorrect:option1.value},
+                { titleOfAnswer: inputAnswer2.value, isCorrect: option2.value},
+                { titleOfAnswer: inputAnswer3.value, isCorrect: option3.value},
+                { titleOfAnswer: inputAnswer4.value, isCorrect: option4.value}
+            ]
+        });
     }
-    data.push(titleQuestion);
     console.log(data);
-    // localStorage.setItem('quiz', JSON.stringify(listDataOfQuestion));
     saveData();
 }
 //  ===========    MAIN     =================================================
@@ -131,26 +139,7 @@ function add(event) {
 // 1 = Read from local storage
 loadData();
 
-// =================================Variable=====================================
-let btnAdd = document.getElementById("btnAdd");
-let inputQuestion = document.getElementById("question")
-let inputAnswer1 = document.getElementById("answer1");
-let inputAnswer2 = document.getElementById("answer2");
-let inputAnswer3 = document.getElementById("answer3");
-let inputAnswer4 = document.getElementById("answer4");
-let listDataOfAnswer = [];
-let titleQuestion = {};
-let titleAnswer1 = {};
-let titleAnswer2 = {};
-let titleAnswer3 = {};
-let titleAnswer4 = {};
-//
-listDataOfAnswer.push(titleAnswer1);
-listDataOfAnswer.push(titleAnswer4);
-listDataOfAnswer.push(titleAnswer3);
-listDataOfAnswer.push(titleAnswer2);
-
+// =================================main=====================================
 btnAdd.addEventListener("click", add);
 
 displayQuiz();
-
