@@ -1,48 +1,44 @@
-// ====================================================== Set data to object ======================================
-newDatar = []
-
-function setNewData() {
-    let setDatas1 = localStorage.setItem('newQuiz', JSON.stringify(newDatar));
-}
-
-// ===================================================== Call elements =============================================
+// ===================================================== Call elements ==============================================
+// 
 let mainContainerOFrun = document.querySelector('.mainContainer-run');
 let submit = document.querySelector('#submit');
 let points = document.querySelectorAll('.point');
 let finishQ = document.querySelector(".finishQuizPart");
 let button = document.querySelector('.button');
-// --------------------------------------------- call old data from local storage----------------------------------------
-let getOldData = JSON.parse(localStorage.getItem('quiz'));
-console.log(getOldData)
+let newData = document.querySelector('.newData');
+// --------------------------------------------- call old data from local storage--------------------------------------
+let getOldData = JSON.parse(localStorage.getItem('oldDatas'));
 
 
-
-// ======================================================= Variable==================================================
-let total = 0;
+// ======================================================= Variable====================================================
+let totalOfOldData = 0;
+// let totalOfnweData = 0;
 let inputTypeClass = 0;
 var storeIscorrectVal = [];
-let indexOfCheck = 0;
+var storeCountH3 = [];
 let countChecked = 0;
+let countH3 = 0;
+let isRadioOrCheckBox = 0;
 
 
-//* ======================================================= function part ============================================*
+//* ======================================================= function part ==============================================*
 
-// ------------------------------loop on question key to call question value & display points ------------------------
-function displayQuiz(storeIscorrectVal) {
+// ------------------------------loop on question key to call question value & display points ---------------------------
+function displayQuiz(storeIscorrectVal, storeCountH3) {
     for (let elements of getOldData) {
+        inputTypeClass += 1
         let questionLine = document.createElement('div');
         questionLine.className = 'questionLine';
         let h3 = document.createElement('h3');
-        h3.textContent = elements['question'];
+        h3.textContent = inputTypeClass + elements['question'];
         let point = document.createElement('span');
-        point.textContent = '10 points';
+        point.textContent = '6.4 points';
         point.className = 'points'
         questionLine.appendChild(point)
         questionLine.appendChild(h3);
         mainContainerOFrun.appendChild(questionLine);
-        inputTypeClass += 1
-            // ------------------------------loop on listOfAnswer key to call listOfAnswer value ----
-        for (let values of elements['listOfAnswer']) {
+        // ------------------------------loop on listOfAnswers key to call listOfAnswers value ----
+        for (let values of elements['listOfAnswers']) {
 
             let ol = document.createElement('ol');
             ol.className = 'ol';
@@ -53,7 +49,71 @@ function displayQuiz(storeIscorrectVal) {
                 inputType.type = 'checkbox'
             }
             inputType.className = 'inputTypes'
-            inputType.name = 'listOfAnswer' + inputTypeClass
+            inputType.name = 'listOfAnswers' + inputTypeClass
+
+            let li = document.createElement('li');
+
+            storeIscorrectVal.push(values['isCorrect'])
+
+            ol.appendChild(inputType)
+            li.textContent = values['titleOfAnswer'];
+            ol.appendChild(li);
+            if (values['isCorrect'] === true) {
+                let trueLi = document.createElement('li');
+                trueLi.className = 'trueLi'
+                let tickImg = document.createElement('img');
+                tickImg.src = "../image/tick.png";
+                trueLi.append(tickImg)
+                ol.appendChild(trueLi);
+            } else {
+                let trueLi = document.createElement('li');
+                trueLi.className = 'trueLi'
+                let tickImg = document.createElement('img');
+                tickImg.src = "../image/false.png";
+                trueLi.append(tickImg)
+                ol.appendChild(trueLi);
+            }
+            questionLine.appendChild(ol);
+            mainContainerOFrun.appendChild(questionLine);
+        }
+        countH3 += 1
+
+
+    }
+    storeCountH3.push(countH3)
+        // -- -- -- -- -- -- -- -- -- -- -- call hideFinish part function------- ----------------------
+    hideFinishPart()
+
+    newData.style.display = 'none'
+}
+
+// ================================================ Call new data =======================================================
+let newDatas = JSON.parse(localStorage.getItem('data'));
+
+// ================================================ New function to display new quiz  ====================================
+function displayNewQuiz(storeIscorrectVal, storeCountH3) {
+    for (let elements of newDatas) {
+        let questionLine = document.createElement('div');
+        questionLine.className = 'questionLine';
+        let h3 = document.createElement('h3');
+        h3.className = 'newH3'
+        h3.textContent = elements['questionE'];
+        let point = document.createElement('span');
+        point.textContent = '6.25 points';
+        point.className = 'points'
+        questionLine.appendChild(point)
+        questionLine.appendChild(h3);
+        mainContainerOFrun.appendChild(questionLine);
+        inputTypeClass += 1
+            // ------------------------------loop on listOfAnswers key to call listOfAnswers value -------------------
+        for (let values of elements['listOfAnswersE']) {
+
+            let ol = document.createElement('ol');
+            ol.className = 'ol';
+            let inputType = document.createElement('input')
+            inputType.type = 'checkbox'
+            inputType.className = 'inputTypes'
+            inputType.name = 'listOfAnswers' + inputTypeClass
 
             let li = document.createElement('li');
 
@@ -71,24 +131,36 @@ function displayQuiz(storeIscorrectVal) {
                 ol.appendChild(trueLi);
             }
             questionLine.appendChild(ol);
-            mainContainerOFrun.appendChild(questionLine);
+            newData.appendChild(questionLine);
         }
+        countH3 += 1
 
     }
-    // -- -- -- -- -- -- -- -- -- -- -- call hideFinish part function------- ----------------------
+    storeCountH3.push(countH3)
+        // -- -- -- -- -- -- -- -- -- -- -- call hideFinish part function------- ----------------------
     hideFinishPart()
+    mainContainerOFrun.style.display = 'none'
 }
-displayQuiz(storeIscorrectVal);
+// ============function to auto switch defualt quiz and new quiz(if new quiz===null display defualt quiz)  ==============
+function switchPage() {
 
-// ================================================ function to check user click =====================================
+    if (newDatas === null) {
+        displayQuiz(storeIscorrectVal, storeCountH3);
+    } else {
+        displayNewQuiz(storeIscorrectVal, storeCountH3)
+    }
+
+}
+switchPage()
+    // ================================================ function to validation on checked ======================================
 function checkResult() {
     let storeCheckIndex = [];
     let checktypeOfInputs = document.getElementsByTagName('input');
     for (let i = 0; i < checktypeOfInputs.length; i++) {
         if (checktypeOfInputs[i].checked && storeIscorrectVal[i] === true) {
-            total += 10;
+            totalOfOldData += 6.25;
             for (scores of points) {
-                scores.textContent = total;
+                scores.textContent = totalOfOldData;
             }
         };
         if (checktypeOfInputs[i].checked) {
@@ -98,28 +170,27 @@ function checkResult() {
         }
     }
 
-    // -------------------------- hide display quiz container annd show finish part container and validate on check -------------------------
-    if (storeCheckIndex.length < 10) {
+    // -------------------------- hide and show some contaier(before and after click btn submit) --------------------------
+    if (storeCheckIndex.length < JSON.parse(storeCountH3)) {
         alert('You must answer all the questions!')
     } else {
         finishQ.style.display = 'block';
         submit.style.display = 'none'
+        newData.style.display = 'none'
         mainContainerOFrun.style.display = 'none'
     }
 
 }
 
-// ============================================= function to check all box had  all checked ==========================
-
-// ================================================= function to hide finish part container===========================
+// ================================================= function to hide finish part container=================================
 function hideFinishPart() {
     finishQ.style.display = 'none';
 }
 
-// ====================================================== Add event listener ===========================================
+// ====================================================== Add event listener to submit btn  ================================
 submit.addEventListener('click', checkResult);
 
-// ------------------------------------------------- recall displayQuiz(storeIscorrectVal) function---------------------
+// ------------------------------------------------- Show good or bad answer -----------------------------------------------
 button.addEventListener('click', function(e) {
     if (e.target.className === 'button') {
         hideFinishPart()

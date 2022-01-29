@@ -29,7 +29,11 @@
         <div class="edit-con">
             <button id="btnAdd">+ADD</button>
             <form id="idForm" action="">
-                <input type="text" id="question" placeholder="question">
+                <div class="questionAndSetScore">
+                    <input type="text" id="question" placeholder="question">
+                    <input type="number" id="setScore" value="0" min="0" max="100">
+                    <p>pts</p>
+                </div>
                 <div class="addAnswer">
                     <input type="text" id="answer1" placeholder="answer1">
                     <select name="select" id="option1">
@@ -59,12 +63,8 @@
                     </select>
                 </div>
             </form>
-            <div class="question"></div>
-            <div class="answer1"></div>
-            <div class="answer2"></div>
-            <div class="answer3"></div>
-            <div class="answer4"></div>
-            <button class="createBtn">Create</button>
+            <a href="runQuiz.html"><button class="createBtn">Play your quiz</button></a>
+
         </div>
     </div>
 </body>

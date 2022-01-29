@@ -8,8 +8,14 @@ let inputAnswer1 = document.getElementById("answer1");
 let inputAnswer2 = document.getElementById("answer2");
 let inputAnswer3 = document.getElementById("answer3");
 let inputAnswer4 = document.getElementById("answer4");
-//  ===========    FUNCTION     ==============================================
+let setScore = document.querySelector('#setScore');
+for (let i of setScore) {
+    // let point = setScore.value;
+    console.log(setScore.value)
+}
 
+//  ===========    FUNCTION     ==============================================
+let addScoreToLoc = localStorage.setItem('score', JSON.stringify(setScore.value));
 // let toRemoveQuestion = questions.titleOfQuesion;
 function
 removeQuestion(event) {
@@ -22,7 +28,7 @@ removeQuestion(event) {
     }
     // save data
     saveData()
-    
+
     // refresh dom
     displayQuiz()
 }
@@ -30,39 +36,39 @@ removeQuestion(event) {
 
 function displayQuiz() {
     for (let questions of data) {
-        
+
         // Find index of each questions    
-        let numberOfQuestion = data.indexOf(questions) + 1 +". ";
+        var numberOfQuestion = data.indexOf(questions) + 1 + " : ";
         let questionTitle = document.createElement('h3');
         questionTitle.className = "question";
         // Title of each questions   
         let pOfQuestion = document.createElement('p');
         pOfQuestion.className = "pOfQuestion";
-        
+
         // Number in order of each questions   
-        pOfQuestion.textContent = numberOfQuestion + questions.titleOfQuestion;
-        questionTitle.appendChild(pOfQuestion);
-        form.appendChild(questionTitle);
-        
+        // pOfQuestion.textContent = numberOfQuestion + questions.titleOfQuestion;
+        // questionTitle.appendChild(pOfQuestion);
+        // form.appendChild(questionTitle);
+
         // Create image of pencil to edit questions & append into edit button
-        let editBtn = document.createElement('img');
-        editBtn.src = "../image/pencil.png";
-        editBtn.className = "editBtn";
-        questionTitle.appendChild(editBtn);
-        
-        // Create image of trush to remove questions & append into remove button
-        let removeBtn = document.createElement('img');
-        removeBtn.src = "../image/trush.png";
-        removeBtn.className = "removeBtn";
-        questionTitle.appendChild(removeBtn);
-        
-        removeBtn.addEventListener('click', removeQuestion);
-        
+        // let editBtn = document.createElement('img');
+        // editBtn.src = "../image/pencil.png";
+        // editBtn.className = "editBtn";
+        // questionTitle.appendChild(editBtn);
+
+        // // Create image of trush to remove questions & append into remove button
+        // let removeBtn = document.createElement('img');
+        // removeBtn.src = "../image/trush.png";
+        // removeBtn.className = "removeBtn";
+        // questionTitle.appendChild(removeBtn);
+
+        // removeBtn.addEventListener('click', removeQuestion);
+
         // Loop to create position of  each answers   
         for (let values of questions.listOfAnswer) {
             let ol = document.createElement('ol');
             ol.className = 'ol-edit';
-            
+
             // To create type of radio button    
             let radio = document.createElement('input');
             radio.type = 'radio';
@@ -82,8 +88,6 @@ function displayQuiz() {
                 ol.appendChild(tickImg);
                 ol.style.display = "image/tick.png";
             }
-            // console.log(questionTitle);
-            
         }
     }
 }
@@ -114,27 +118,34 @@ let option1 = document.querySelector("#option1");
 let option2 = document.querySelector("#option2");
 let option3 = document.querySelector("#option3");
 let option4 = document.querySelector("#option4");
+
 function add() {
-   
+
     if (inputQuestion.value == "" || inputAnswer1.value == "" || inputAnswer2.value == "" || inputAnswer3.value == "" ||
-    inputAnswer4.value === "") {
+        inputAnswer4.value === "") {
         window.alert("Please write input the feild!")
     } else {
+        setTimeout(function() {
+            location.reload(true);
+        }, 8000);
+        // window.location.reload()
         data.push({
-            titleOfQuestion: inputQuestion.value,
-            listOfAnswer: [
-                { titleOfAnswer: inputAnswer1.value, isCorrect:option1.value},
-                { titleOfAnswer: inputAnswer2.value, isCorrect: option2.value},
-                { titleOfAnswer: inputAnswer3.value, isCorrect: option3.value},
-                { titleOfAnswer: inputAnswer4.value, isCorrect: option4.value}
+            questionE: inputQuestion.value,
+            listOfAnswersE: [
+                { titleOfAnswer: inputAnswer1.value, isCorrect: option1.value },
+                { titleOfAnswer: inputAnswer2.value, isCorrect: option2.value },
+                { titleOfAnswer: inputAnswer3.value, isCorrect: option3.value },
+                { titleOfAnswer: inputAnswer4.value, isCorrect: option4.value }
             ]
         });
     }
-    console.log(data);
     saveData();
+    alert('Your quiz is already added')
+    play.style.display = 'block'
 }
 //  ===========    MAIN     =================================================
-
+let play = document.querySelector('.createBtn');
+play.style.display = 'none'
 
 // 1 = Read from local storage
 loadData();

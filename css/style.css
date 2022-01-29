@@ -1,190 +1,211 @@
-/*             Display by Meng  Mao             */
-
-body {
-    display: flex;
-    justify-content: center;
-    font-family: sans-serif;
-}
-
-.container-edit {
-    width: 70%;
-}
-
-.edit-con {
-    width: 81.5%;
-    margin: auto;
-}
-
-nav {
-    background: rgb(253, 253, 253);
-    border-bottom: 1px solid blue;
-    width: 80%;
-    margin-left: 10%;
-}
-
-nav ul {
-    display: flex;
-    align-content: space-between;
-}
-
-nav ul span {
-    font-family: cursive;
-    color: skyblue;
-}
-
-#pink {
-    margin-left: 65%;
-    color: palevioletred;
-}
-
-#purple {
-    color: purple;
-}
-
-nav ul a li {
-    list-style: none;
-    font-size: small;
-}
-
-nav ul a {
-    padding: 2%;
-    color: rgb(18, 1, 255);
-    text-decoration: none;
-}
-
-form {
-    width: 94%;
-    background-color: rgb(248, 248, 248);
-    margin: auto;
-    padding: 2%;
-    padding-bottom: 7%;
-    margin-bottom: -7%;
-}
-
-form .ol-edit {
-    display: flex;
-    background-color: rgb(255, 255, 255);
-}
-
-form .li-edit {
-    list-style: none;
-    width: 100%;
-    padding: 2%;
-    color: black;
-    font-size: small;
-    font-weight: normal;
-}
-
-input[type='radio'] {
-    width: 0;
-}
-
-.pOfQuestion {
-    background-color: rgb(0, 153, 255);
-    padding: 2%;
-    margin-bottom: 3%;
-    color: white;
-    margin-top: 3%;
-    border-bottom: 2px solid blue;
-}
-
-.edit-con .question1 ol li {
-    margin-top: 5%;
-}
-
-.showEditQuiz {
-    border-bottom: 1px solid blue;
-}
-
-
-/*   ======>>>>>To set size of image tick >>>>>>====== */
-
-.tickImg {
-    margin-top: 2%;
-    margin-right: 5%;
-    width: 25px;
-    height: 25px;
-}
-
-
-/*   To prepare footer of quiz */
-
-.editBtn {
-    margin-left: 85%;
-    width: 4%;
-    height: 5%;
-    padding: -5%;
-}
-
-.removeBtn {
-    margin-left: 3%;
-    width: 4%;
-    height: 5%;
-    padding: -5%;
-}
-
-.createBtn {
-    background-color: rgb(0, 153, 255);
-    margin-left: 45%;
-    padding: 1.5% 4%;
-    font-size: large;
-    font-weight: bold;
-    border-radius: 5%;
-    margin-top: 10%;
-    margin-bottom: 5%;
-    border: none;
-}
-
-.createBtn:hover {
-    background-color: rgb(150, 172, 179);
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-}
-
-
-/* ===========================================border of Meng ====================================================== */
-
-
-/* ========================add question=========================================== */
-
-#btnAdd {
-    padding: 12px 25px;
-    margin: 2.5%;
-    float: right;
-    margin-top: 5px;
-    background: rgb(0, 153, 255);
-    border: none;
-}
-
-#question {
-    width: 93.7%;
-    padding: 20px;
-    border: none;
+    /*             Display by Meng  Mao             */
     
-}
-
-#answer1,
-#answer2,
-#answer3,
-#answer4 {
-    width: 85%;
-    padding: 10px;
-    margin-top: 5px;
-    border: none;
-}
-
-#img {
-    width: 2.5%;
-    margin-left: 20px;
-}
-
-#option1,#option2,#option3,#option4 {
-    margin-left: 5px;
-    padding: 10px;
-    margin-top: 5px;
-    border: none;
-}
-
-.addAnswer {
-    display: flex;
-    align-items: center;
-}
+    body {
+        display: flex;
+        justify-content: center;
+        font-family: sans-serif;
+    }
+    
+    .container-edit {
+        width: 70%;
+    }
+    
+    .edit-con {
+        width: 81.5%;
+        margin: auto;
+    }
+    
+    nav {
+        background: rgb(253, 253, 253);
+        border-bottom: 1px solid blue;
+        width: 80%;
+        margin-left: 10%;
+    }
+    
+    nav ul {
+        display: flex;
+        align-content: space-between;
+    }
+    
+    nav ul span {
+        font-family: cursive;
+        color: skyblue;
+    }
+    
+    #pink {
+        margin-left: 65%;
+        color: palevioletred;
+    }
+    
+    #purple {
+        color: purple;
+    }
+    
+    nav ul a li {
+        list-style: none;
+        font-size: small;
+    }
+    
+    nav ul a {
+        padding: 2%;
+        color: rgb(18, 1, 255);
+        text-decoration: none;
+    }
+    
+    form {
+        width: 94%;
+        background-color: rgb(248, 248, 248);
+        margin: auto;
+        padding: 2%;
+        padding-bottom: 7%;
+        margin-bottom: -7%;
+    }
+    
+    form .ol-edit {
+        display: flex;
+        background-color: rgb(255, 255, 255);
+    }
+    
+    form .li-edit {
+        list-style: none;
+        width: 100%;
+        padding: 2%;
+        color: black;
+        font-size: small;
+        font-weight: normal;
+    }
+    
+    input[type='radio'] {
+        width: 0;
+    }
+    
+    .pOfQuestion {
+        background-color: rgb(0, 153, 255);
+        padding: 2%;
+        margin-bottom: 3%;
+        color: white;
+        margin-top: 3%;
+        border-bottom: 2px solid blue;
+    }
+    
+    .edit-con .question1 ol li {
+        margin-top: 5%;
+    }
+    
+    .showEditQuiz {
+        border-bottom: 1px solid blue;
+    }
+    /*   ======>>>>>To set size of image tick >>>>>>====== */
+    
+    .tickImg {
+        margin-top: 2%;
+        margin-right: 5%;
+        width: 25px;
+        height: 25px;
+    }
+    /*   To prepare footer of quiz */
+    
+    .editBtn {
+        margin-left: 85%;
+        width: 4%;
+        height: 5%;
+        padding: -5%;
+    }
+    
+    .removeBtn {
+        margin-left: 3%;
+        width: 4%;
+        height: 5%;
+        padding: -5%;
+    }
+    
+    .createBtn {
+        background-color: rgb(0, 153, 255);
+        margin-left: 40%;
+        padding: 1.5% 4%;
+        font-size: large;
+        font-weight: bold;
+        border-radius: 5px;
+        margin-top: 10%;
+        margin-bottom: 5%;
+        border: none;
+        color: white;
+    }
+    
+    .createBtn:hover {
+        background-color: green
+    }
+    
+    .edit-con a {
+        text-decoration: none;
+    }
+    /* ===========================================border of Meng ====================================================== */
+    /* ========================add question=========================================== */
+    
+    #btnAdd {
+        padding: 12px 25px;
+        margin: 2.5%;
+        float: right;
+        margin-top: 5px;
+        background: rgb(0, 153, 255);
+        border: none;
+        color: white;
+    }
+    
+    #btnAdd:hover {
+        background-color: green;
+    }
+    
+    #question {
+        width: 93.7%;
+        padding: 20px;
+        border: none;
+    }
+    
+    #answer1,
+    #answer2,
+    #answer3,
+    #answer4 {
+        width: 85%;
+        padding: 10px;
+        margin-top: 5px;
+        border: none;
+    }
+    
+    #img {
+        width: 2.5%;
+        margin-left: 20px;
+    }
+    
+    #option1,
+    #option2,
+    #option3,
+    #option4 {
+        margin-left: 5px;
+        padding: 10px;
+        margin-top: 5px;
+        border: none;
+    }
+    
+    .addAnswer {
+        display: flex;
+        align-items: center;
+    }
+    
+    .questionAndSetScore {
+        display: flex;
+        margin-top: 10%;
+    }
+    
+    .questionAndSetScore p {
+        font-size: smaller;
+        margin-left: 1%;
+    }
+    
+    #setScore {
+        width: 10%;
+        height: 4vh;
+        border: 2px solid white;
+        margin-left: 1%;
+        margin-top: 2%;
+    }
